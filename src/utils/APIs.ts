@@ -10,7 +10,7 @@ class GithubAPIs {
 
   public async get10AngularIssues(start: number) {
     try {
-      const response = await this.octokit.request(`Get /repos/{owner}/{repo}/issues?page=${start}per_page=10&sort=comments`, {
+      const response = await this.octokit.request(`Get /repos/{owner}/{repo}/issues?page=${start}&per_page=10&sort=comments`, {
         owner: 'angular',
         repo: 'angular-cli',
       });

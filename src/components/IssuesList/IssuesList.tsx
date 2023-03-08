@@ -19,17 +19,17 @@ const IssuesList = ({ btn }: Props) => {
       {issues.map((issue, i) => {
         const { id, number } = issue;
         return (
-          <>
+          <div key={id}>
             <Link to={`/issue/${number}`}>
               <IssueRow issue={issue} />
             </Link>
             {(i + 1) % 10 === 0 && (
-              <div className={'flex flex-col gap-4'} key={`${id}_handler`}>
+              <div className={'flex flex-col gap-4'}>
                 <img className={'cursor-pointer'} src={'https://hellobot-test.s3.ap-northeast-2.amazonaws.com/image/01fdd797-0477-4717-8d70-8551150463f7'} alt={'ad'} onClick={moveToAdLink} />
                 {btn}
               </div>
             )}
-          </>
+          </div>
         )
       })}
     </article>

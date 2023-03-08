@@ -11,7 +11,7 @@ const FetchButton = ({ github, text }: { github: GithubAPIs, text?: string }) =>
 
   const onFetchAngularIssues = useCallback(async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const result = await github.get10AngularIssues(start);
+    const result = await github.get10AngularIssues(start + 1);
     if (result) {
       dispatch(push10IssuesByComment(result));
     }

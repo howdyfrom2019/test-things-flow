@@ -8,7 +8,7 @@ interface Props {
 const IssueRow = ({ issue, showAvatar }: Props) => {
   const { id, created_at, number, comments, title, user: { login, avatar_url } } = issue;
   return (
-    <section className={'px-4 py-3 flex justify-between border border-border mt-[-1px] items-center'} key={id}>
+    <section className={'px-4 py-3 flex justify-between border border-border mt-[-1px] items-center'}>
       <div className={'flex items-center'}>
         { showAvatar && (<img className={'border border-border rounded-full w-8 h-8 object-fill mr-4'} src={avatar_url} alt={'profile_img'} />) }
         <div className={'flex flex-col gap-2'}>

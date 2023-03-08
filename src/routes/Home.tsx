@@ -1,16 +1,21 @@
 import Button from '../components/Button/Button';
-import { useCallback, useEffect, useMemo, MouseEvent } from 'react';
-import { Octokit } from 'octokit';
+import { useCallback, useMemo, MouseEvent } from 'react';
 import GithubAPIs from '../utils/APIs';
+import { useDispatch } from 'react-redux';
+import { push10IssuesByComment } from '../store/reducers/IssuesSlicer';
+import IssuesList from '../components/IssuesList/IssuesList';
 
 const Home = () => {
-  const github = useMemo(() => new GithubAPIs(),[])
+  const github = useMemo(() => new GithubAPIs(),[]);
+  const dispatch = useDispatch();
 
   const onFetchAngularIssues = useCallback(async(e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const result = await github.get10AngularIssues();
-    console.log(result);
-  }, [github]);
+    if (result) {
+      dispatch(push10IssuesByComment(result));
+    }
+  }, [dispatch, github]);
 
   return (
     <article className={'flex flex-col gap-5'}>
@@ -23,6 +28,7 @@ const Home = () => {
         >
           Issue 10개 로딩 시작
         </Button>
+        <IssuesList />
       </main>
     </article>
   )

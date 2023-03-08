@@ -34,8 +34,7 @@ const Home = () => {
 
   return (
     <div className={'flex flex-col gap-5'}>
-      <header className={'font-regular-24 px-4 py-3 bg-bgGray text-blue'}>angular<strong> / angular-cli</strong>
-      </header>
+      <header className={'font-regular-24 px-4 py-3 bg-bgGray text-blue'}>angular<strong> / angular-cli</strong></header>
       <main className={'w-content-desktop flex flex-col gap-4 mx-auto'}>
         <FetchButton github={github}/>
         <IssuesList btn={<FetchButton github={github} />}/>

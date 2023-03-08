@@ -9,3 +9,7 @@ export default function useIssues(): GithubIssues[] {
 export function useIssueStartPage(): number {
   return useSelector((state: RootState) => state.issues.length);
 }
+
+export function useSpecificIssue(number: number): GithubIssues | undefined {
+  return useSelector((state: RootState) => state.issues.find(val => val.number === number));
+}

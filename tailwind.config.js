@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       spacing: {
         'content-desktop': '1280px',
+        'content-mobile': 'calc(100% - 24px)',
       },
       colors: {
         green: '#2da44e',

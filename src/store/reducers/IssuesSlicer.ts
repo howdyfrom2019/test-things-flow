@@ -7,10 +7,11 @@ const IssuesSlicer = createSlice({
   reducers: {
     push10IssuesByComment: (state, action: PayloadAction<GithubIssues[]>) => {
       state.push(...action.payload);
-    }
+    },
+    clearIssues: () => ([])
   }
 });
 
 const { actions, reducer } = IssuesSlicer;
-export const { push10IssuesByComment } = actions;
+export const { push10IssuesByComment, clearIssues } = actions;
 export default reducer;

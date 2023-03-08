@@ -13,10 +13,10 @@ const IssueRow = ({ issue, showAvatar }: Props) => {
         { showAvatar && (<img className={'border border-border rounded-full w-8 h-8 object-fill mr-4'} src={avatar_url} alt={'profile_img'} />) }
         <div className={'flex flex-col gap-2'}>
           <span className={'font-medium-24'}>#{number} {title}</span>
-          <span className={'font-regular-12'}>{login} {created_at}</span>
+          <span className={'font-regular-12'}>작성자: {login} 작성일: {created_at}</span>
         </div>
       </div>
-      <span className={'font-medium-12'}>{comments}</span>
+      <span className={'font-medium-12'}>댓글: {comments}</span>
     </section>
   )
 }

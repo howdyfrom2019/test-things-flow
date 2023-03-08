@@ -1,44 +1,23 @@
-import Button from '../components/Button/Button';
-import { useCallback, useMemo, MouseEvent } from 'react';
+import { useMemo } from 'react';
+import FetchButton from '../components/Button/FetchButton';
 import GithubAPIs from '../utils/APIs';
-import { useDispatch } from 'react-redux';
-import { push10IssuesByComment } from '../store/reducers/IssuesSlicer';
 import IssuesList from '../components/IssuesList/IssuesList';
-import { useIssueStartPage } from '../hooks/useIssues';
-
-const FetchButton = ({ github }: { github: GithubAPIs }) => {
-  const dispatch = useDispatch();
-  const start = useIssueStartPage();
-
-  const onFetchAngularIssues = useCallback(async (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const result = await github.get10AngularIssues(start);
-    if (result) {
-      dispatch(push10IssuesByComment(result));
-    }
-  }, [start, github, dispatch]);
-
-  return (
-    <Button
-      className={'font-medium-12 max-w-sm'}
-      btnType={'PRIMARY'}
-      onClick={onFetchAngularIssues}
-    >
-      Issue 10개 로딩 시작
-    </Button>
-  )
-}
+import ClearButton from '../components/Button/ClearButton';
 
 const Home = () => {
   const github = useMemo(() => new GithubAPIs(), []);
 
   return (
-    <div className={'flex flex-col gap-5'}>
+    <div className={'flex flex-col gap-5 min-h-screen'}>
       <header className={'font-regular-24 px-4 py-3 bg-bgGray text-blue'}>angular<strong> / angular-cli</strong></header>
-      <main className={'w-content-desktop flex flex-col gap-4 mx-auto'}>
+      <main className={'w-content-desktop flex flex-col gap-4 mx-auto md:w-content-mobile flex-1'}>
         <FetchButton github={github}/>
         <IssuesList btn={<FetchButton github={github} />}/>
       </main>
+      <footer className={'flex justify-between items-center sticky bottom-0 left-0 w-full w-screen px-4 py-3 mx-auto border border-border bg-bgGray'}>
+        <FetchButton github={github} text={'load'} />
+        <ClearButton />
+      </footer>
     </div>
   )
 }

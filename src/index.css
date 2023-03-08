@@ -19,6 +19,22 @@
     line-height: 21px;
   }
 
+  .font-regular-24 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 23px;
+  }
+
+  .font-medium-12 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.6666rem;
+    line-height: 15px;
+  }
+
   .font-medium-24 {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
